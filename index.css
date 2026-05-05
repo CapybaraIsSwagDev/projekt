@@ -1,27 +1,152 @@
+:root {
+    --primary-green: #4CAF50;
+    --dark-green: #2E7D32;
+    --soft-green: #e8f5e9;
+    --accent-yellow: #fff176;
+    --text: #333;
+    --white: #ffffff;
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-image: linear-gradient(135deg,lightblue,rgb(126, 255, 126));
-    min-height: 100vh;
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--soft-green);
+    background-image: radial-gradient(#c8e6c9 1px, transparent 1px); /* Dost pekne bodocky ako pozadie */
+    background-size: 20px 20px;
+    color: var(--text);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Header s veľkým obrázkom na pozadí */
+header {
+    position: relative;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
+    color: var(--white);
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    background-color: #2E7D32;
+}
+
+.header-content {
+    z-index: 2;
+    text-align: center;
+
+}
+
+header h1 {
+    font-family: 'Fredoka', cursive;
+    font-size: 4rem;
     margin: 0;
 }
-header {
-    background: url('main.jpg');
-    opacity: 0.9;
-    height: 300px;
-    background-size: cover;
-    background-position: center;
 
+.homepage-img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    object-fit: cover; 
+    object-position: center;
     width: 100%;
-    justify-content: center;
+    max-width: 1500px;
+    z-index: 1;
+    filter: brightness(0.7);
+}
+@media (max-width: 900px) {
+    .homepage-img {
+        left: 0;
+        transform: unset;
+        height: 100%;
+    }
+}
+
+/* Hlavný kontajner */
+main {
+    max-width: 900px;
+    margin: -50px auto 50px;
+    position: relative;
+    z-index: 3;
+    padding: 0 20px;
+}
+
+section {
+    background: var(--white);
+    margin-bottom: 30px;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+}
+
+h2 {
+    font-family: 'Fredoka', cursive;
+    color: var(--dark-green);
+    display: inline-block;
+    margin-top: 0;
+    padding-bottom: 5px;
+}
+
+/* Štýlovanie menu tabuľky */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px dashed #ddd;
+}
+
+td:last-child {
+    text-align: right;
+    font-weight: bold;
+    color: var(--dark-green);
+}
+
+tr:hover {
+    background-color: #f9fff9;
+}
+
+/* Obrázky */
+.img-responsive {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    display: block;
+    margin: 20px auto;
+}
+
+.employee-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--primary-green);
+}
+
+.map-placeholder {
+    background: #eee;
+    width: 100%;
+    height: 250px;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    font-style: italic;
+    color: #777;
+    border: 2px solid #ddd;
 }
-header h1 {
+
+footer {
     text-align: center;
-    color: white;
-}
-/* DEBUG */
-body[data-D="1"] * {
-    margin: 5px;
-    background-color: orange;
+    padding: 40px;
+    font-size: 0.9rem;
+    color: #666;
 }
