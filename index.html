@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Frog Café</title>
     <link href="index.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="/logo.png">
+    <link rel="icon" type="image/x-icon" href="logo.png">
 </head>
 <body>
 
@@ -84,8 +84,8 @@
             <div>
                 <h2>Pridaj sa k nám.</h2>
                 <form id="form" class="form-example">
-                    <label for="meno">Meno:</label> <input type="text" name="meno" id="meno" required><br>
-                    <label for="priezvisko">Priezvisko:</label> <input type="text" name="priezvisko" id="priezvisko" required><br>
+                    <label for="meno">Meno:</label> <input type="text" name="meno" id="meno" autocomplete="given-name" required><br>
+                    <label for="priezvisko">Priezvisko:</label> <input type="text" name="priezvisko" id="priezvisko" autocomplete="family-name" required><br>
                     <label for="mail">E-mail:</label> <input type="text" name="mail" id="mail" required><br>
                     <input type="submit" name="odoslat" value="Odoslať">
                 </form>
@@ -103,7 +103,12 @@
                 method: "POST",
                 body: formData
             });
-            document.getElementById("response").textContent = "Ďakujeme, pošleme vám E-mail";
+            if (response.status == 200) {
+                document.getElementById("response").textContent = "Ďakujeme, poslali sme vám E-mail";
+            } else {
+                console.log(response.status)
+                document.getElementById("response").textContent = "Vyskytla sa chyba v odosielanie mailu. Skuste pozriet či ste dobre zadali Meno, Priezvisko";
+            }
         });
     </script>
     <footer>
